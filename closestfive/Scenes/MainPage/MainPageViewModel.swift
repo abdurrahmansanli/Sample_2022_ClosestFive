@@ -45,4 +45,4 @@ final class MainPageViewModel {
         }
     }
 }
- 
+
