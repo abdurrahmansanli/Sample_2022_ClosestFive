@@ -18,6 +18,11 @@ final class MainPageViewModel {
     }
     
     func getPlaces() {
-        placesApi.getPlaces()
+        placesApi.getPlaces(latitude: 41.0086,
+                            longitude: 28.8644) { placesResponse in
+            print("")
+        } failure: {
+            //TODO: Handle failure
+        }
     }
 }

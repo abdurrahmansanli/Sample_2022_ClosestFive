@@ -13,17 +13,17 @@ enum HttpMethod: String {
 }
 
 final class ApiClient {
-
+    
     private let session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
     private let baseUrl = "https://api.foursquare.com/v3/"
     private let token = "fsq3cj5xqxFW/ZXayTlXX+FOgrNfCnMX0+Lvm1jguNLKHSY="
     private let authorizationKey = "Authorization"
-
+    
     func sendRequest<ResponseType:Decodable>(httpMethod: HttpMethod,
                                              responseType: ResponseType.Type,
-                                   urlString: String,
-                                   success: @escaping (ResponseType) -> Void,
-                                   failure: @escaping () -> Void) {
+                                             urlString: String,
+                                             success: @escaping (ResponseType) -> Void,
+                                             failure: @escaping () -> Void) {
         let requestUrlString = baseUrl + urlString
         guard let requestUrl = URL(string: requestUrlString) else { return }
         var request = URLRequest(url: requestUrl)
