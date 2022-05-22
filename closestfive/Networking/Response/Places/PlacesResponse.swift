@@ -5,7 +5,9 @@
 //  Created by Abdurrahman Şanlı on 22.05.2022.
 //
 
-final class PlacesResponse: Decodable {
+import Foundation
+
+final class PlacesResponse: NSObject, Codable {
     var results: [Place]
 
     enum CodingKeys: String, CodingKey {
@@ -13,7 +15,7 @@ final class PlacesResponse: Decodable {
     }
 }
 
-final class Place: Decodable {
+final class Place: NSObject, Codable {
     var name: String
 
     enum CodingKeys: String, CodingKey {
