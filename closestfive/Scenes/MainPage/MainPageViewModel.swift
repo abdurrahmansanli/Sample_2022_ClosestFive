@@ -9,6 +9,8 @@ final class MainPageViewModel {
     
     var closurePlacesDidUpdate: (() -> Void)?
     
+    var closurePlacesWillUpdate: (() -> Void)?
+    
     var places = [Place]()
     
     private let placesApi: PlacesApi
@@ -24,6 +26,7 @@ final class MainPageViewModel {
     }
     
     func refreshPlaces() {
+        closurePlacesWillUpdate?()
         placesApi.getPlaces(latitude: 41.0086,
                             longitude: 28.8644) { placesResponse in
             self.places = placesResponse.results.prefix(self.maximumItemCount).map { $0 }

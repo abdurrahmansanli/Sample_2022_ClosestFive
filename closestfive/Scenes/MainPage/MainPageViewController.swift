@@ -8,14 +8,21 @@
 import UIKit
 
 final class MainPageViewController: UIViewController {
-
+    
     private let viewModel = MainPageViewModel()
+    
+    private lazy var refreshControl: RefreshControl = {
+        let refreshControl = RefreshControl()
+        refreshControl.closurePullToRefreshDidComplete = pullToRefreshAction
+        return refreshControl
+    }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.addSubview(refreshControl)
         return tableView
     }()
     
@@ -40,11 +47,23 @@ final class MainPageViewController: UIViewController {
     }
     
     private func bind() {
+        viewModel.closurePlacesWillUpdate = { [weak self] in
+            DispatchQueue.main.async {
+                self?.refreshControl.setState(.refreshing)
+            }
+        }
+        
         viewModel.closurePlacesDidUpdate = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                self?.refreshControl.setState(.doneRefreshing)
             }
         }
+    }
+    
+    @objc
+    private func pullToRefreshAction() {
+        viewModel.refreshPlaces()
     }
 }
 
