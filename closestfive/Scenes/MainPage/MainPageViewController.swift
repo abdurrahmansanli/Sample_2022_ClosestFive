@@ -14,6 +14,7 @@ final class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        viewModel.getPlaces()
     }
     
     private func layout() {
