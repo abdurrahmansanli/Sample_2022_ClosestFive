@@ -7,7 +7,11 @@
 
 final class MainPageViewModel {
     
-    let placesApi: PlacesApi
+    var closurePlacesDidUpdate: (() -> Void)?
+    
+    var places = [Place]()
+    
+    private let placesApi: PlacesApi
     
     init(placesApi: PlacesApi) {
         self.placesApi = placesApi
@@ -17,12 +21,14 @@ final class MainPageViewModel {
         self.init(placesApi: PlacesApi())
     }
     
-    func getPlaces() {
+    func refreshPlaces() {
         placesApi.getPlaces(latitude: 41.0086,
                             longitude: 28.8644) { placesResponse in
-            print("")
+            self.places = placesResponse.results
+            self.closurePlacesDidUpdate?()
         } failure: {
             //TODO: Handle failure
         }
     }
 }
+ 
