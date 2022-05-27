@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8459DB7F2840E0EA00401137 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DB7E2840E0EA00401137 /* MainPageViewController.swift */; };
+		8459DB812840E0F200401137 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DB802840E0F200401137 /* MainPageViewModel.swift */; };
+		8459DB842840F64800401137 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8459DB832840F64800401137 /* AboutController.swift */; };
 		847A7A6828386C3E007F32FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A6728386C3E007F32FD /* AppDelegate.swift */; };
 		847A7A6C28386C3E007F32FD /* VenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A6B28386C3E007F32FD /* VenuesViewController.swift */; };
 		847A7A7428386C3F007F32FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847A7A7328386C3F007F32FD /* Assets.xcassets */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8459DB7E2840E0EA00401137 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		8459DB802840E0F200401137 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		8459DB832840F64800401137 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
 		847A7A6428386C3E007F32FD /* closestfive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = closestfive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847A7A6728386C3E007F32FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847A7A6B28386C3E007F32FD /* VenuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8459DB7D2840E0D700401137 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				8459DB7E2840E0EA00401137 /* MainPageViewController.swift */,
+				8459DB802840E0F200401137 /* MainPageViewModel.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		8459DB822840F63300401137 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				8459DB832840F64800401137 /* AboutController.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		847A7A5B28386C3E007F32FD = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +173,9 @@
 		847A7A9C28386C53007F32FD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8459DB7D2840E0D700401137 /* MainPage */,
 				847A7A9E28386DA9007F32FD /* Venues */,
+				8459DB822840F63300401137 /* About */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -395,8 +420,11 @@
 				84EE3608283ACEC000520214 /* PlacesDatabaseManager.swift in Sources */,
 				84EE35F82839A43800520214 /* PlacesApi.swift in Sources */,
 				84EE3606283AB14A00520214 /* BaseDatabaseManager.swift in Sources */,
+				8459DB7F2840E0EA00401137 /* MainPageViewController.swift in Sources */,
 				84EE35FD2839A76000520214 /* PlacesResponse.swift in Sources */,
 				84EE3600283A9AAA00520214 /* RefreshControl.swift in Sources */,
+				8459DB812840E0F200401137 /* MainPageViewModel.swift in Sources */,
+				8459DB842840F64800401137 /* AboutController.swift in Sources */,
 				84EE36122840A57100520214 /* ActionPromptView.swift in Sources */,
 				84EE360D283C137500520214 /* LocationService.swift in Sources */,
 				84EE3603283AB0D700520214 /* MainDatabase.xcdatamodeld in Sources */,

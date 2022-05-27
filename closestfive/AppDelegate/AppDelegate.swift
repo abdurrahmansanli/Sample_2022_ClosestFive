@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func initializeRootController() {
-        let rootController = VenuesViewController()
+        let rootController = MainPageViewController()
         let rootNavigationController = UINavigationController(rootViewController: rootController)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = rootNavigationController
