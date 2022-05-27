@@ -1,5 +1,5 @@
 //
-//  MainPageViewModel.swift
+//  VenuesViewModel.swift
 //  closestfive
 //
 //  Created by Abdurrahman Şanlı on 21.05.2022.
@@ -7,7 +7,7 @@
 
 import CoreLocation
 
-final class MainPageViewModel {
+final class VenuesViewModel {
     
     var closurePlacesDidUpdate: (() -> Void)?
     
@@ -61,7 +61,7 @@ final class MainPageViewModel {
     }
 }
 
-extension MainPageViewModel: LocationServiceDelegate {
+extension VenuesViewModel: LocationServiceDelegate {
     func closureDidUpdateLocation(location: CLLocation) {
         refreshPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         closureLocationPermissionAllowed?(true)

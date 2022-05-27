@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		847A7A6828386C3E007F32FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A6728386C3E007F32FD /* AppDelegate.swift */; };
-		847A7A6C28386C3E007F32FD /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A6B28386C3E007F32FD /* MainPageViewController.swift */; };
-		847A7A7228386C3E007F32FD /* closestfive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A7028386C3E007F32FD /* closestfive.xcdatamodeld */; };
+		847A7A6C28386C3E007F32FD /* VenuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A6B28386C3E007F32FD /* VenuesViewController.swift */; };
 		847A7A7428386C3F007F32FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847A7A7328386C3F007F32FD /* Assets.xcassets */; };
 		847A7A7728386C3F007F32FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847A7A7528386C3F007F32FD /* LaunchScreen.storyboard */; };
 		847A7A8228386C3F007F32FD /* closestfiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A8128386C3F007F32FD /* closestfiveTests.swift */; };
-		847A7AA028386DD9007F32FD /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A9F28386DD9007F32FD /* MainPageViewModel.swift */; };
+		847A7AA028386DD9007F32FD /* VenuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7A9F28386DD9007F32FD /* VenuesViewModel.swift */; };
 		847A7AA628386EA4007F32FD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A7AA528386EA4007F32FD /* ApiClient.swift */; };
 		84EE35F82839A43800520214 /* PlacesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE35F72839A43800520214 /* PlacesApi.swift */; };
 		84EE35FD2839A76000520214 /* PlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE35FC2839A76000520214 /* PlacesResponse.swift */; };
@@ -45,15 +44,14 @@
 /* Begin PBXFileReference section */
 		847A7A6428386C3E007F32FD /* closestfive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = closestfive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847A7A6728386C3E007F32FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		847A7A6B28386C3E007F32FD /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		847A7A7128386C3E007F32FD /* closestfive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = closestfive.xcdatamodel; sourceTree = "<group>"; };
+		847A7A6B28386C3E007F32FD /* VenuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesViewController.swift; sourceTree = "<group>"; };
 		847A7A7328386C3F007F32FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		847A7A7628386C3F007F32FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		847A7A7828386C3F007F32FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847A7A7D28386C3F007F32FD /* closestfiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = closestfiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		847A7A8128386C3F007F32FD /* closestfiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = closestfiveTests.swift; sourceTree = "<group>"; };
 		847A7A8728386C3F007F32FD /* closestfiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = closestfiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		847A7A9F28386DD9007F32FD /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		847A7A9F28386DD9007F32FD /* VenuesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesViewModel.swift; sourceTree = "<group>"; };
 		847A7AA528386EA4007F32FD /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		84EE35F72839A43800520214 /* PlacesApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesApi.swift; sourceTree = "<group>"; };
 		84EE35FC2839A76000520214 /* PlacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
@@ -112,9 +110,7 @@
 		847A7A6628386C3E007F32FD /* closestfive */ = {
 			isa = PBXGroup;
 			children = (
-				84EE35FE283A9A9F00520214 /* UIComponents */,
 				847A7A9B28386C4E007F32FD /* AppDelegate */,
-				847A7A9D28386C6A007F32FD /* CoreData */,
 				84EE360B283C136800520214 /* Services */,
 				84EE35F92839A74000520214 /* Networking */,
 				847A7A9C28386C53007F32FD /* Scenes */,
@@ -154,26 +150,18 @@
 		847A7A9C28386C53007F32FD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				847A7A9E28386DA9007F32FD /* MainPage */,
+				847A7A9E28386DA9007F32FD /* Venues */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		847A7A9D28386C6A007F32FD /* CoreData */ = {
+		847A7A9E28386DA9007F32FD /* Venues */ = {
 			isa = PBXGroup;
 			children = (
-				847A7A7028386C3E007F32FD /* closestfive.xcdatamodeld */,
+				847A7A6B28386C3E007F32FD /* VenuesViewController.swift */,
+				847A7A9F28386DD9007F32FD /* VenuesViewModel.swift */,
 			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
-		847A7A9E28386DA9007F32FD /* MainPage */ = {
-			isa = PBXGroup;
-			children = (
-				847A7A6B28386C3E007F32FD /* MainPageViewController.swift */,
-				847A7A9F28386DD9007F32FD /* MainPageViewModel.swift */,
-			);
-			path = MainPage;
+			path = Venues;
 			sourceTree = "<group>";
 		};
 		847A7AA128386E31007F32FD /* Api */ = {
@@ -226,14 +214,6 @@
 			path = Places;
 			sourceTree = "<group>";
 		};
-		84EE35FE283A9A9F00520214 /* UIComponents */ = {
-			isa = PBXGroup;
-			children = (
-				84EE35FF283A9AAA00520214 /* RefreshControl.swift */,
-			);
-			path = UIComponents;
-			sourceTree = "<group>";
-		};
 		84EE3604283AB0E000520214 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +251,7 @@
 		84EE36102840A40800520214 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				84EE35FF283A9AAA00520214 /* RefreshControl.swift */,
 				84EE36112840A57100520214 /* ActionPromptView.swift */,
 			);
 			name = UIComponents;
@@ -407,15 +388,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847A7AA028386DD9007F32FD /* MainPageViewModel.swift in Sources */,
-				847A7A6C28386C3E007F32FD /* MainPageViewController.swift in Sources */,
+				847A7AA028386DD9007F32FD /* VenuesViewModel.swift in Sources */,
+				847A7A6C28386C3E007F32FD /* VenuesViewController.swift in Sources */,
 				847A7A6828386C3E007F32FD /* AppDelegate.swift in Sources */,
 				847A7AA628386EA4007F32FD /* ApiClient.swift in Sources */,
 				84EE3608283ACEC000520214 /* PlacesDatabaseManager.swift in Sources */,
 				84EE35F82839A43800520214 /* PlacesApi.swift in Sources */,
 				84EE3606283AB14A00520214 /* BaseDatabaseManager.swift in Sources */,
 				84EE35FD2839A76000520214 /* PlacesResponse.swift in Sources */,
-				847A7A7228386C3E007F32FD /* closestfive.xcdatamodeld in Sources */,
 				84EE3600283A9AAA00520214 /* RefreshControl.swift in Sources */,
 				84EE36122840A57100520214 /* ActionPromptView.swift in Sources */,
 				84EE360D283C137500520214 /* LocationService.swift in Sources */,
@@ -749,16 +729,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		847A7A7028386C3E007F32FD /* closestfive.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				847A7A7128386C3E007F32FD /* closestfive.xcdatamodel */,
-			);
-			currentVersion = 847A7A7128386C3E007F32FD /* closestfive.xcdatamodel */;
-			path = closestfive.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		84EE3601283AB0D700520214 /* MainDatabase.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

@@ -1,5 +1,5 @@
 //
-//  MainPageViewController.swift
+//  VenuesViewController.swift
 //  closestfive
 //
 //  Created by Abdurrahman Şanlı on 21.05.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class MainPageViewController: UIViewController {
+final class VenuesViewController: UIViewController {
     
-    private let viewModel = MainPageViewModel()
+    private let viewModel = VenuesViewModel()
     
     private lazy var refreshControl: RefreshControl = {
         let refreshControl = RefreshControl()
@@ -106,7 +106,7 @@ final class MainPageViewController: UIViewController {
     }
 }
 
-extension MainPageViewController: UITableViewDataSource {
+extension VenuesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.places.count
@@ -120,7 +120,7 @@ extension MainPageViewController: UITableViewDataSource {
     }
 }
 
-extension MainPageViewController: UITableViewDelegate {
+extension VenuesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
