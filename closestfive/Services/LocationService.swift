@@ -70,7 +70,7 @@ extension LocationService: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // TODO: Handle failure
+        delegate?.closureDidReceiveUpdateError(updateError: .unknown)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

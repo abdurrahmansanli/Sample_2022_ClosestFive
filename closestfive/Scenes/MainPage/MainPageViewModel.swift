@@ -13,6 +13,8 @@ final class MainPageViewModel {
     
     var closurePlacesWillUpdate: (() -> Void)?
     
+    var closureLocationPermissionAllowed: ((Bool) -> Void)?
+    
     var places = [Place]()
     
     private let placesApi: PlacesApi
@@ -39,11 +41,11 @@ final class MainPageViewModel {
     }
     
     func refresh() {
+        closurePlacesWillUpdate?()
         locationService.updateLocationIfAppropriate()
     }
     
     private func refreshPlaces(latitude: Double, longitude: Double) {
-        closurePlacesWillUpdate?()
         placesApi.getPlaces(latitude: latitude, longitude: longitude) { placesResponse in
             self.places = placesResponse.results.prefix(self.maximumItemCount).map { $0 }
             self.placesDatabaseManager.savePlacesResponse(placesResponse)
@@ -62,13 +64,15 @@ final class MainPageViewModel {
 extension MainPageViewModel: LocationServiceDelegate {
     func closureDidUpdateLocation(location: CLLocation) {
         refreshPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        closureLocationPermissionAllowed?(true)
     }
     
     func closureDidReceiveUpdateError(updateError: UpdateError) {
-        // TODO: Handle error
+        closureLocationPermissionAllowed?(false)
     }
     
     func receivedSameLocation() {
+        closureLocationPermissionAllowed?(true)
         self.closurePlacesDidUpdate?()
     }
 }

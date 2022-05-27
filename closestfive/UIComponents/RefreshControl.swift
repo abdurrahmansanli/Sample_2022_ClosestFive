@@ -43,6 +43,7 @@ final class RefreshControl: UIRefreshControl {
         case .readyToRefresh:
             attributedTitle = NSAttributedString(string: pullToRefreshText)
         case .refreshing:
+            beginRefreshing()
             attributedTitle = NSAttributedString(string: refreshingText)
         case .doneRefreshing:
             attributedTitle = NSAttributedString(string: doneText)

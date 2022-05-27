@@ -21,9 +21,20 @@ final class MainPageViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.addSubview(refreshControl)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
+    }()
+    
+    private lazy var actionPromptView: ActionPromptView = {
+        let message = "You need location permission to use Closest 5"
+        let buttonTitle = "App Settings"
+        let actionPromptView = ActionPromptView(message: message,
+                                                buttonTitle: buttonTitle,
+                                                closureButtonAction: goToAppSettings)
+        actionPromptView.translatesAutoresizingMaskIntoConstraints = false
+        actionPromptView.isHidden = true
+        return actionPromptView
     }()
     
     override func viewDidLoad() {
@@ -44,19 +55,41 @@ final class MainPageViewController: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+        view.addSubview(actionPromptView)
+        NSLayoutConstraint.activate([
+            actionPromptView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            actionPromptView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            actionPromptView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+        ])
     }
     
     private func bind() {
         viewModel.closurePlacesWillUpdate = { [weak self] in
             DispatchQueue.main.async {
-                self?.refreshControl.setState(.refreshing)
+                guard let self = self else { return }
+                let offsetPoint = CGPoint.init(x: 0, y: -self.view.bounds.size.height)
+                self.tableView.setContentOffset(offsetPoint, animated: false)
+                self.refreshControl.setState(.refreshing)
             }
         }
         
         viewModel.closurePlacesDidUpdate = { [weak self] in
             DispatchQueue.main.async {
+                self?.tableView.setContentOffset(.zero, animated: false)
                 self?.tableView.reloadData()
                 self?.refreshControl.setState(.doneRefreshing)
+            }
+        }
+        
+        viewModel.closureLocationPermissionAllowed = { [weak self] isAllowed in
+            DispatchQueue.main.async {
+                if isAllowed {
+                    self?.actionPromptView.isHidden = true
+                } else {
+                    self?.refreshControl.setState(.readyToRefresh)
+                    self?.actionPromptView.isHidden = false
+                }
             }
         }
     }
@@ -64,6 +97,12 @@ final class MainPageViewController: UIViewController {
     @objc
     private func pullToRefreshAction() {
         viewModel.refresh()
+    }
+    
+    @objc
+    private func goToAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
     }
 }
 
