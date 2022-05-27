@@ -29,9 +29,11 @@ Covered basic iOS Development concepts as a reference.
 - Table View (VenuesViewController)
 - Custom View Components (ActionPromptView, RefreshControl)
 - UISegmentedControl (MainPageViewController)
+- Adding multiple views from a custom data array (MainPageViewController)
 
 ### UX:
 - Pull to refresh (VenuesViewController)
+- Routing to app settings (VenuesViewController)
 
 ### Logic:
 - Location Manager (LocationService)
