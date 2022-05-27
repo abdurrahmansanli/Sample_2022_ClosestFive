@@ -68,8 +68,10 @@ final class VenuesViewController: UIViewController {
         viewModel.closurePlacesWillUpdate = { [weak self] in
             DispatchQueue.main.async {
                 guard let self = self else { return }
-                let offsetPoint = CGPoint.init(x: 0, y: -self.view.bounds.size.height)
-                self.tableView.setContentOffset(offsetPoint, animated: false)
+                if self.viewModel.places.count == 0 {
+                    let offsetPoint = CGPoint.init(x: 0, y: -self.view.bounds.size.height)
+                    self.tableView.setContentOffset(offsetPoint, animated: false)
+                }
                 self.refreshControl.setState(.refreshing)
             }
         }
@@ -82,13 +84,18 @@ final class VenuesViewController: UIViewController {
             }
         }
         
-        viewModel.closureLocationPermissionAllowed = { [weak self] isAllowed in
+        viewModel.closureLocationPermissionStateDidUpdate = { [weak self] state in
             DispatchQueue.main.async {
-                if isAllowed {
+                switch state {
+                case .locationPermissionNotDetermined:
                     self?.actionPromptView.isHidden = true
-                } else {
-                    self?.refreshControl.setState(.readyToRefresh)
+                    self?.tableView.isHidden = false
+                case .locationPermissionGiven:
+                    self?.actionPromptView.isHidden = true
+                    self?.tableView.isHidden = false
+                case .locationPermissionNotGiven:
                     self?.actionPromptView.isHidden = false
+                    self?.tableView.isHidden = true
                 }
             }
         }

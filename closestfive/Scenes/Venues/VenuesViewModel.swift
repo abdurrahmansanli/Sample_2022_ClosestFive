@@ -7,15 +7,25 @@
 
 import CoreLocation
 
+enum LocationPermissionState {
+    case locationPermissionNotDetermined
+    case locationPermissionGiven
+    case locationPermissionNotGiven
+}
+
 final class VenuesViewModel {
     
-    var closurePlacesDidUpdate: (() -> Void)?
+    var places = [Place]()
     
     var closurePlacesWillUpdate: (() -> Void)?
+    var closurePlacesDidUpdate: (() -> Void)?
+    var closureLocationPermissionStateDidUpdate: ((LocationPermissionState) -> Void)?
     
-    var closureLocationPermissionAllowed: ((Bool) -> Void)?
-    
-    var places = [Place]()
+    private var state: LocationPermissionState = .locationPermissionNotDetermined {
+        didSet {
+            closureLocationPermissionStateDidUpdate?(state)
+        }
+    }
     
     private let placesApi: PlacesApi
     
@@ -64,15 +74,24 @@ final class VenuesViewModel {
 extension VenuesViewModel: LocationServiceDelegate {
     func closureDidUpdateLocation(location: CLLocation) {
         refreshPlaces(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        closureLocationPermissionAllowed?(true)
+        state = .locationPermissionGiven
     }
     
     func closureDidReceiveUpdateError(updateError: UpdateError) {
-        closureLocationPermissionAllowed?(false)
+        switch updateError {
+        case .denied:
+            state = .locationPermissionNotGiven
+        case .notDetermined:
+            state = .locationPermissionNotGiven
+        case .restricted:
+            state = .locationPermissionNotGiven
+        case .unknown:
+            self.closurePlacesDidUpdate?()
+        }
     }
     
     func receivedSameLocation() {
-        closureLocationPermissionAllowed?(true)
+        state = .locationPermissionGiven
         self.closurePlacesDidUpdate?()
     }
 }
