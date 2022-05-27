@@ -21,22 +21,23 @@ Covered basic iOS Development concepts as a reference.
 - Authorization (ApiClient)
 
 ### Structure:
-- MVVM (MainPageViewModel)
-- Dependency Injection (MainPageViewModel)
+- MVVM (VenuesViewModel)
+- Dependency Injection (VenuesViewModel)
 
 ### UI:
-- UIKit Layouts from code (MainPageViewController)
-- Table View (MainPageViewController)
+- UIKit Layouts from code (VenuesViewController)
+- Table View (VenuesViewController)
 - Custom View Components (ActionPromptView, RefreshControl)
+- UISegmentedControl (MainPageViewController)
 
 ### UX:
-- Pull to refresh (MainPageViewController)
+- Pull to refresh (VenuesViewController)
 
 ### Logic:
 - Location Manager (LocationService)
-- Closures (MainPageViewModel)
-- Error handling (MainPageViewModel, ApiClient, LocationService)
-- Higher order functions (MainPageViewModel)
+- Closures (VenuesViewModel)
+- Error handling (VenuesViewModel, ApiClient, LocationService)
+- Higher order functions (VenuesViewModel)
 - Encoding / Decoding (PlacesDatabaseManager)
 
 ### CoreData:
