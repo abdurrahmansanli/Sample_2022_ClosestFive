@@ -30,7 +30,7 @@ final class MainPageViewController: UIViewController {
         super.viewDidLoad()
         layout()
         bind()
-        viewModel.refreshPlaces()
+        viewModel.refresh()
     }
     
     private func layout() {
@@ -63,7 +63,7 @@ final class MainPageViewController: UIViewController {
     
     @objc
     private func pullToRefreshAction() {
-        viewModel.refreshPlaces()
+        viewModel.refresh()
     }
 }
 

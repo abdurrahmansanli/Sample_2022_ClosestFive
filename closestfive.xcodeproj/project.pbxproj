@@ -21,6 +21,7 @@
 		84EE3603283AB0D700520214 /* MainDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84EE3601283AB0D700520214 /* MainDatabase.xcdatamodeld */; };
 		84EE3606283AB14A00520214 /* BaseDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE3605283AB14A00520214 /* BaseDatabaseManager.swift */; };
 		84EE3608283ACEC000520214 /* PlacesDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE3607283ACEC000520214 /* PlacesDatabaseManager.swift */; };
+		84EE360D283C137500520214 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE360C283C137500520214 /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		84EE3602283AB0D700520214 /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		84EE3605283AB14A00520214 /* BaseDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDatabaseManager.swift; sourceTree = "<group>"; };
 		84EE3607283ACEC000520214 /* PlacesDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesDatabaseManager.swift; sourceTree = "<group>"; };
+		84EE360C283C137500520214 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				84EE35FE283A9A9F00520214 /* UIComponents */,
 				847A7A9B28386C4E007F32FD /* AppDelegate */,
 				847A7A9D28386C6A007F32FD /* CoreData */,
+				84EE360B283C136800520214 /* Services */,
 				84EE35F92839A74000520214 /* Networking */,
 				847A7A9C28386C53007F32FD /* Scenes */,
 				847A7A9A28386C48007F32FD /* Resources */,
@@ -254,6 +257,14 @@
 			path = DataModels;
 			sourceTree = "<group>";
 		};
+		84EE360B283C136800520214 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				84EE360C283C137500520214 /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -394,6 +405,7 @@
 				84EE35FD2839A76000520214 /* PlacesResponse.swift in Sources */,
 				847A7A7228386C3E007F32FD /* closestfive.xcdatamodeld in Sources */,
 				84EE3600283A9AAA00520214 /* RefreshControl.swift in Sources */,
+				84EE360D283C137500520214 /* LocationService.swift in Sources */,
 				84EE3603283AB0D700520214 /* MainDatabase.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +503,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -546,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
