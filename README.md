@@ -1,9 +1,5 @@
 # closestfive
 
-## Active Branch
-
-Switch to: **feature/base-project** 
-
 ## Abstract
 
 Covered basic iOS Development concepts as a reference.
